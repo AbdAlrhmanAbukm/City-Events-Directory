@@ -10,7 +10,7 @@ const eventsData = [
         time: "7:00 PM",
         location: "City Theater",
         category: "Music",
-        image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=400&fit=crop",
+        image: "assets/img/event1.jpg",
         featured: true
     },
     {
@@ -21,7 +21,7 @@ const eventsData = [
         time: "6:00 PM",
         location: "City Sports Stadium",
         category: "Sports",
-        image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=400&fit=crop",
+        image: "assets/img/event2.jpg",
         featured: true
     },
     {
@@ -32,7 +32,7 @@ const eventsData = [
         time: "10:00 AM",
         location: "Arts Center",
         category: "Culture",
-        image: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&h=400&fit=crop",
+        image: "assets/img/event3.jpg",
         featured: true
     },
     {
@@ -43,7 +43,7 @@ const eventsData = [
         time: "4:00 PM",
         location: "Cooking School",
         category: "Family",
-        image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=400&fit=crop",
+        image: "assets/img/event4.jpg",
         featured: false
     },
     {
@@ -54,7 +54,7 @@ const eventsData = [
         time: "7:30 PM",
         location: "Conference Hall",
         category: "Technology",
-        image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=400&fit=crop",
+        image: "assets/img/event5.jpg",
         featured: false
     },
     {
@@ -65,7 +65,7 @@ const eventsData = [
         time: "8:00 PM",
         location: "Culture Palace",
         category: "Charity",
-        image: "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&h=400&fit=crop",
+        image: "assets/img/event6.jpg",
         featured: false
     },
     {
@@ -76,7 +76,7 @@ const eventsData = [
         time: "5:00 PM",
         location: "City Square",
         category: "Family",
-        image: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&h=400&fit=crop",
+        image: "assets/img/event7.jpg",
         featured: false
     },
     {
@@ -87,7 +87,7 @@ const eventsData = [
         time: "6:30 PM",
         location: "Poetry House",
         category: "Culture",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop",
+        image: "assets/img/event8.jpg",
         featured: false
     }
 ];
