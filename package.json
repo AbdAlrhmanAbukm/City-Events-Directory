@@ -1,0 +1,70 @@
+{
+  "name": "city-events-directory",
+  "version": "1.0.0",
+  "description": "دليل فعاليات المدينة - موقع ويب شامل لاكتشاف ومتابعة الفعاليات المحلية",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8080",
+    "dev": "npx live-server --port=8080",
+    "build": "echo 'No build process needed for static site'",
+    "deploy": "echo 'Deploy to GitHub Pages'"
+  },
+  "keywords": [
+    "events",
+    "directory",
+    "city",
+    "local",
+    "activities",
+    "bootstrap",
+    "responsive",
+    "arabic"
+  ],
+  "author": "BWP401_F24_Homework Team",
+  "contributors": [
+    {
+      "name": "أحمد محمد",
+      "role": "مدير المشروع",
+      "email": "eventSy@gmail.com"
+    },
+    {
+      "name": "فاطمة علي",
+      "role": "مصممة واجهات",
+      "email": "eventSy@gmail.com"
+    },
+    {
+      "name": "محمد حسن",
+      "role": "مطور برمجيات",
+      "email": "eventSy@gmail.com"
+    },
+    {
+      "name": "سارة أحمد",
+      "role": "مديرة المحتوى",
+      "email": "eventSy@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/city-events-directory.git"
+  },
+  "bugs": {
+    "url": "https://github.com/username/city-events-directory/issues"
+  },
+  "homepage": "https://username.github.io/city-events-directory/",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
+
+
+

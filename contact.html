@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - City Events Directory</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-primary text-white">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand fw-bold" href="index.html">
+                    <i class="fas fa-calendar-alt me-2"></i>
+                    City Events Directory
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="events.html">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="bg-gradient text-white py-5" style="background: linear-gradient(to left, #007acc, #00b4d8) !important; color: white !important;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold" style="color: white !important; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Contact Us</h1>
+                    <p class="lead" style="color: #f0f0f0 !important; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">We are here to help you - contact us for any inquiries or suggestions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form & Info -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Contact Form -->
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="mb-0">Send us a Message</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="contactForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="contactName" class="form-label">Full Name *</label>
+                                        <input type="text" class="form-control" id="contactName" required>
+                                        <div class="invalid-feedback" id="nameError"></div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="contactEmail" class="form-label">Email Address *</label>
+                                        <input type="email" class="form-control" id="contactEmail" required>
+                                        <div class="invalid-feedback" id="emailError"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="contactPhone" class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="contactPhone">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="contactSubject" class="form-label">Subject *</label>
+                                        <select class="form-select" id="contactSubject" required>
+                                            <option value="">Choose Subject</option>
+                                            <option value="Inquiry">Inquiry</option>
+                                            <option value="Suggestion">Suggestion</option>
+                                            <option value="Complaint">Complaint</option>
+                                            <option value="Add Event">Add Event</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                        <div class="invalid-feedback" id="subjectError"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contactMessage" class="form-label">Message *</label>
+                                    <textarea class="form-control" id="contactMessage" rows="5" required placeholder="Write your message here..."></textarea>
+                                    <div class="invalid-feedback" id="messageError"></div>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="contactAgreement" required>
+                                        <label class="form-check-label" for="contactAgreement">
+                                            I agree to the <a href="#" class="text-primary">privacy terms</a> and <a href="#" class="text-primary">usage policy</a>
+                                        </label>
+                                        <div class="invalid-feedback" id="agreementError"></div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-paper-plane me-2"></i>
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5 class="mb-0">Contact Information</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-envelope text-primary me-2"></i>
+                                <strong>Email:</strong><br>
+                                <a href="mailto:eventSy@gmail.com">eventSy@gmail.com</a>
+                            </div>
+                            <div class="mb-3">
+                                <i class="fas fa-phone text-primary me-2"></i>
+                                <strong>Phone:</strong><br>
+                                <a href="tel:+963935357946">0935357946</a>
+                            </div>
+                            <div class="mb-3">
+                                <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                                <strong>Address:</strong><br>
+                                Umayyad Square, Damascus, Syria
+                                <div class="mt-2">
+                                    <img src="assets/img/company_location.png" alt="Company Location" class="img-fluid rounded">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <i class="fas fa-clock text-primary me-2"></i>
+                                <strong>Working Hours:</strong><br>
+                                Sunday - Thursday: 8:00 AM - 5:00 PM<br>
+                                Friday - Saturday: Closed
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Follow Us</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="social-links">
+                                <a href="#" class="btn btn-outline-primary btn-sm me-2 mb-2">
+                                    <i class="fab fa-facebook me-1"></i> Facebook
+                                </a>
+                                <a href="#" class="btn btn-outline-info btn-sm me-2 mb-2">
+                                    <i class="fab fa-twitter me-1"></i> Twitter
+                                </a>
+                                <a href="#" class="btn btn-outline-danger btn-sm me-2 mb-2">
+                                    <i class="fab fa-instagram me-1"></i> Instagram
+                                </a>
+                                <a href="#" class="btn btn-outline-danger btn-sm me-2 mb-2">
+                                    <i class="fab fa-youtube me-1"></i> YouTube
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">موقعنا</h2>
+            <div class="row">
+                <div class="col-12">
+                    <div class="map-placeholder bg-light text-center py-5 rounded">
+                        <i class="fas fa-map-marker-alt fa-3x text-muted mb-3"></i>
+                        <h5>خريطة الموقع</h5>
+                        <p class="text-muted">شارع الملك فهد، المدينة، المملكة العربية السعودية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">الأسئلة الشائعة</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    كيف يمكنني إضافة فعالية جديدة؟
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    يمكنك إضافة فعالية جديدة من خلال ملء نموذج "اتصل بنا" واختيار "إضافة فعالية" كموضوع الرسالة. سنراجع طلبك ونضيف الفعالية خلال 48 ساعة.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    هل الخدمة مجانية؟
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    نعم، جميع خدماتنا مجانية تماماً. لا توجد رسوم على إضافة الفعاليات أو استخدام الموقع.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    كيف يمكنني تحديث معلومات فعالية موجودة؟
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    يمكنك التواصل معنا عبر نموذج "اتصل بنا" وتحديد الفعالية التي تريد تحديثها. سنقوم بتحديث المعلومات خلال 24 ساعة.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>City Events Directory</h3>
+                <p>A platform that aims to gather the most prominent local events in one place for everyone to enjoy.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>eventSy@gmail.com</p>
+                <div class="social-icons">
+                    <a href="#">🌐</a>
+                    <a href="#">🐦</a>
+                    <a href="#">📸</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>2025 City Events Directory — All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

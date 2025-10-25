@@ -1,0 +1,64 @@
+# ملفات النظام
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ملفات المحرر
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ملفات مؤقتة
+*.tmp
+*.temp
+*.log
+
+# ملفات النسخ الاحتياطي
+*.bak
+*.backup
+
+# ملفات Node.js (إذا تم استخدامها)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ملفات Python (إذا تم استخدامها)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ملفات PHP (إذا تم استخدامها)
+vendor/
+composer.lock
+
+# ملفات الاختبار
+test/
+tests/
+*.test.js
+
+# ملفات التطوير
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# ملفات الضغط
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+# ملفات الصور المؤقتة
+temp_images/
+uploaded_images/
+
+# ملفات الإعدادات المحلية
+config.local.js
+settings.local.json
+
+
+
