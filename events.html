@@ -157,11 +157,12 @@
     <!-- Custom JS -->
     <script src="assets/js/main.js"></script>
     
-    <!-- Apply category filter when page loads -->
+    <!-- Initialize events page -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Apply category filter if coming from main page
-            applyCategoryFilter();
+            currentPage = 'events';
+            const category = new URLSearchParams(window.location.search).get('category');
+            category ? applyCategoryFilter() : loadAllEvents();
         });
     </script>
 </body>

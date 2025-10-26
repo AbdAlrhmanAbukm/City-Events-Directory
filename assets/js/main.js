@@ -2,26 +2,21 @@
 
 // Function to filter events by category
 function filterByCategory(category) {
-    // Store the selected category in localStorage
-    localStorage.setItem('selectedCategory', category);
-    
-    // Redirect to events page
-    window.location.href = 'events.html';
+    // Redirect to events page with category parameter
+    window.location.href = `events.html?category=${encodeURIComponent(category)}`;
 }
 
-// Function to apply category filter when page loads
+// Apply category filter from URL
 function applyCategoryFilter() {
-    const selectedCategory = localStorage.getItem('selectedCategory');
-    if (selectedCategory) {
-        // Set the category filter dropdown
-        const categoryFilter = document.getElementById('categoryFilter');
-        if (categoryFilter) {
-            categoryFilter.value = selectedCategory;
-            // Trigger the filter function
-            filterEvents();
-        }
-        // Clear the stored category after applying
-        localStorage.removeItem('selectedCategory');
+    const category = new URLSearchParams(window.location.search).get('category');
+    if (category) {
+        setTimeout(() => {
+            const filter = document.getElementById('categoryFilter');
+            if (filter) {
+                filter.value = category;
+                filterEvents();
+            }
+        }, 100);
     }
 }
 
@@ -196,7 +191,7 @@ function loadFeaturedEvents() {
     }
 }
 
-// تحميل جميع الفعاليات
+// Load all events
 function loadAllEvents() {
     const container = document.getElementById('eventsGrid');
     if (container) {
@@ -204,14 +199,12 @@ function loadAllEvents() {
     }
 }
 
-// تحميل تفاصيل الفعالية
+// Load event details
 function loadEventDetails() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const eventId = parseInt(urlParams.get('id')) || 1;
+    const eventId = parseInt(new URLSearchParams(window.location.search).get('id')) || 1;
     const event = eventsData.find(e => e.id === eventId);
     
     if (event) {
-        // تحديث النصوص
         document.getElementById('eventTitle').textContent = event.title;
         document.getElementById('eventDescription').textContent = event.description;
         document.getElementById('eventDate').textContent = event.date;
@@ -219,7 +212,6 @@ function loadEventDetails() {
         document.getElementById('eventLocation').textContent = event.location;
         document.getElementById('eventCategory').textContent = event.category;
         
-        // تحديث الصورة
         const eventImage = document.getElementById('eventImage');
         if (eventImage) {
             eventImage.src = event.image;
@@ -278,17 +270,17 @@ function displayEvents(events, container) {
     });
 }
 
-// فلترة الفعاليات
+// Filter events
 function filterEvents() {
-    const searchTerm = document.getElementById('searchInput')?.value.toLowerCase() || '';
+    const search = document.getElementById('searchInput')?.value.toLowerCase() || '';
     const category = document.getElementById('categoryFilter')?.value || '';
-    const dateFilter = document.getElementById('dateFilter')?.value || '';
+    const date = document.getElementById('dateFilter')?.value || '';
     
     filteredEvents = eventsData.filter(event => {
-        const matchesSearch = event.title.toLowerCase().includes(searchTerm) ||
-                            event.description.toLowerCase().includes(searchTerm);
+        const matchesSearch = event.title.toLowerCase().includes(search) || 
+                            event.description.toLowerCase().includes(search);
         const matchesCategory = !category || event.category === category;
-        const matchesDate = filterByDate(event.date, dateFilter);
+        const matchesDate = filterByDate(event.date, date);
         
         return matchesSearch && matchesCategory && matchesDate;
     });
@@ -298,7 +290,7 @@ function filterEvents() {
     }
 }
 
-// فلترة حسب التاريخ
+// Filter by date
 function filterByDate(eventDate, filter) {
     if (!filter) return true;
     
@@ -306,30 +298,15 @@ function filterByDate(eventDate, filter) {
     const event = new Date(eventDate);
     
     switch(filter) {
-        case 'today':
-            return event.toDateString() === today.toDateString();
-        case 'week':
-            const weekFromNow = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
-            return event >= today && event <= weekFromNow;
-        case 'month':
-            const monthFromNow = new Date(today.getTime() + 30 * 24 * 60 * 60 * 1000);
-            return event >= today && event <= monthFromNow;
-        default:
-            return true;
+        case 'today': return event.toDateString() === today.toDateString();
+        case 'week': return event >= today && event <= new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
+        case 'month': return event >= today && event <= new Date(today.getTime() + 30 * 24 * 60 * 60 * 1000);
+        default: return true;
     }
 }
 
-// فلترة حسب التصنيف
-function filterByCategory(category) {
-    if (currentPage === 'events') {
-        document.getElementById('categoryFilter').value = category;
-        filterEvents();
-    } else {
-        window.location.href = `events.html?category=${encodeURIComponent(category)}`;
-    }
-}
 
-// مسح الفلاتر
+// Clear filters
 function clearFilters() {
     document.getElementById('searchInput').value = '';
     document.getElementById('categoryFilter').value = '';
@@ -338,7 +315,7 @@ function clearFilters() {
     loadAllEvents();
 }
 
-// إعداد نموذج الاتصال
+// Setup contact form
 function setupContactForm() {
     const form = document.getElementById('contactForm');
     if (form) {
@@ -346,7 +323,7 @@ function setupContactForm() {
     }
 }
 
-// معالجة نموذج الاتصال
+// Handle contact form
 function handleContactForm(e) {
     e.preventDefault();
     
@@ -360,54 +337,54 @@ function handleContactForm(e) {
     };
     
     if (validateContactForm(formData)) {
-        showAlert('تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.', 'success');
+        showAlert('Your message has been sent successfully! We will contact you soon.', 'success');
         document.getElementById('contactForm').reset();
     }
 }
 
-// التحقق من صحة نموذج الاتصال
+// Validate contact form
 function validateContactForm(data) {
     let isValid = true;
     
-    // التحقق من الاسم
+    // Validate name
     if (!data.name.trim()) {
-        showFieldError('contactName', 'الاسم مطلوب');
+        showFieldError('contactName', 'Name is required');
         isValid = false;
     } else {
         clearFieldError('contactName');
     }
     
-    // التحقق من البريد الإلكتروني
+    // Validate email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!data.email.trim()) {
-        showFieldError('contactEmail', 'البريد الإلكتروني مطلوب');
+        showFieldError('contactEmail', 'Email is required');
         isValid = false;
     } else if (!emailRegex.test(data.email)) {
-        showFieldError('contactEmail', 'صيغة البريد الإلكتروني غير صحيحة');
+        showFieldError('contactEmail', 'Invalid email format');
         isValid = false;
     } else {
         clearFieldError('contactEmail');
     }
     
-    // التحقق من الموضوع
+    // Validate subject
     if (!data.subject) {
-        showFieldError('contactSubject', 'الموضوع مطلوب');
+        showFieldError('contactSubject', 'Subject is required');
         isValid = false;
     } else {
         clearFieldError('contactSubject');
     }
     
-    // التحقق من الرسالة
+    // Validate message
     if (!data.message.trim()) {
-        showFieldError('contactMessage', 'الرسالة مطلوبة');
+        showFieldError('contactMessage', 'Message is required');
         isValid = false;
     } else {
         clearFieldError('contactMessage');
     }
     
-    // التحقق من الموافقة
+    // Validate agreement
     if (!data.agreement) {
-        showFieldError('contactAgreement', 'يجب الموافقة على الشروط');
+        showFieldError('contactAgreement', 'You must agree to the terms');
         isValid = false;
     } else {
         clearFieldError('contactAgreement');
@@ -416,7 +393,7 @@ function validateContactForm(data) {
     return isValid;
 }
 
-// عرض خطأ في الحقل
+// Show field error
 function showFieldError(fieldId, message) {
     const field = document.getElementById(fieldId);
     const errorDiv = document.getElementById(fieldId + 'Error');
@@ -427,7 +404,7 @@ function showFieldError(fieldId, message) {
     }
 }
 
-// مسح خطأ الحقل
+// Clear field error
 function clearFieldError(fieldId) {
     const field = document.getElementById(fieldId);
     const errorDiv = document.getElementById(fieldId + 'Error');
@@ -438,7 +415,7 @@ function clearFieldError(fieldId) {
     }
 }
 
-// عرض رسالة تنبيه
+// Show alert message
 function showAlert(message, type = 'info') {
     const alertDiv = document.createElement('div');
     alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
@@ -451,7 +428,7 @@ function showAlert(message, type = 'info') {
     if (container) {
         container.insertBefore(alertDiv, container.firstChild);
         
-        // إزالة التنبيه تلقائياً بعد 5 ثوان
+        // Remove alert automatically after 5 seconds
         setTimeout(() => {
             if (alertDiv.parentNode) {
                 alertDiv.remove();
@@ -460,12 +437,12 @@ function showAlert(message, type = 'info') {
     }
 }
 
-// إضافة للتقويم
+// Add to calendar
 function addToCalendar() {
-    showAlert('تم إضافة الفعالية للتقويم بنجاح!', 'success');
+    showAlert('Event added to calendar successfully!', 'success');
 }
 
-// مشاركة الفعالية
+// Share event
 function shareEvent() {
     if (navigator.share) {
         navigator.share({
@@ -474,19 +451,19 @@ function shareEvent() {
             url: window.location.href
         });
     } else {
-        // نسخ الرابط للحافظة
+        // Copy link to clipboard
         navigator.clipboard.writeText(window.location.href).then(() => {
-            showAlert('تم نسخ رابط الفعالية للحافظة!', 'success');
+            showAlert('Event link copied to clipboard!', 'success');
         });
     }
 }
 
-// إرسال الحجز
+// Submit booking
 function submitBooking() {
     const form = document.getElementById('bookingForm');
     const formData = new FormData(form);
     
-    // التحقق من صحة البيانات
+    // Validate data
     let isValid = true;
     const requiredFields = ['bookingName', 'bookingEmail', 'bookingPhone'];
     
@@ -501,16 +478,16 @@ function submitBooking() {
     });
     
     if (isValid) {
-        showAlert('تم تأكيد حجزك بنجاح! سنتواصل معك قريباً.', 'success');
+        showAlert('Your booking has been confirmed successfully! We will contact you soon.', 'success');
         const modal = bootstrap.Modal.getInstance(document.getElementById('bookingModal'));
         modal.hide();
         form.reset();
     } else {
-        showAlert('يرجى ملء جميع الحقول المطلوبة', 'danger');
+        showAlert('Please fill in all required fields', 'danger');
     }
 }
 
-// تحميل الفعاليات (دالة عامة)
+// Load events (general function)
 function loadEvents() {
     if (currentPage === 'index') {
         loadFeaturedEvents();
@@ -519,15 +496,10 @@ function loadEvents() {
     }
 }
 
-// تأثيرات بصرية
-
-
-
-// تصدير الوظائف للاستخدام العام
+// Export functions for global use
 window.filterEvents = filterEvents;
 window.clearFilters = clearFilters;
 window.addToCalendar = addToCalendar;
 window.shareEvent = shareEvent;
 window.submitBooking = submitBooking;
-window.toggleDarkMode = toggleDarkMode;
 
