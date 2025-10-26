@@ -1,5 +1,30 @@
 // City Events Directory - Main JavaScript File
 
+// Function to filter events by category
+function filterByCategory(category) {
+    // Store the selected category in localStorage
+    localStorage.setItem('selectedCategory', category);
+    
+    // Redirect to events page
+    window.location.href = 'events.html';
+}
+
+// Function to apply category filter when page loads
+function applyCategoryFilter() {
+    const selectedCategory = localStorage.getItem('selectedCategory');
+    if (selectedCategory) {
+        // Set the category filter dropdown
+        const categoryFilter = document.getElementById('categoryFilter');
+        if (categoryFilter) {
+            categoryFilter.value = selectedCategory;
+            // Trigger the filter function
+            filterEvents();
+        }
+        // Clear the stored category after applying
+        localStorage.removeItem('selectedCategory');
+    }
+}
+
 // Sample Events Data
 const eventsData = [
     {
