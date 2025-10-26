@@ -298,71 +298,10 @@ footer a:hover {
     transform: translateX(100%);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero-section {
-        min-height: 50vh;
-        text-align: center;
-    }
-    
-    .hero-section h1 {
-        font-size: 2rem;
-    }
-    
-    .carousel-control-prev,
-    .carousel-control-next {
-        display: none;
-    }
-    
-    .card {
-        margin-bottom: 20px;
-    }
-    
-    .btn {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-}
-
-@media (max-width: 576px) {
-    .hero-section h1 {
-        font-size: 1.5rem;
-    }
-    
-    .hero-section p {
-        font-size: 1rem;
-    }
-    
-    .card-body {
-        padding: 15px;
-    }
-    
-    .navbar-brand {
-        font-size: 1.2rem;
-    }
-}
 
 
 
-/* Print Styles */
-@media print {
-    .navbar,
-    .btn,
-    footer {
-        display: none !important;
-    }
-    
-    body {
-        font-size: 12pt;
-        line-height: 1.4;
-    }
-    
-    .card {
-        break-inside: avoid;
-        box-shadow: none;
-        border: 1px solid #ddd;
-    }
-}
+
 
 /* ===== تصميم صديقك - Hero Section ===== */
 /* مساهمة من زميل الفريق - تصميم Hero Section و Featured Events */
@@ -418,9 +357,9 @@ footer a:hover {
 
 .categories-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(6, 1fr);
     gap: 20px;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -541,44 +480,7 @@ footer a:hover {
 }
 
 
-/* ===== تجاوب محسن ===== */
-@media (max-width: 768px) {
-    .hero h2 {
-        font-size: 2rem;
-    }
-    
-    .hero p {
-        font-size: 1rem;
-    }
-    
-    .events-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .event-card {
-        width: 100%;
-        max-width: 350px;
-    }
-}
 
-@media (max-width: 480px) {
-    .hero {
-        padding: 60px 15px;
-    }
-    
-    .hero h2 {
-        font-size: 1.8rem;
-    }
-    
-    .featured-events {
-        padding: 40px 15px;
-    }
-    
-    .featured-events h2 {
-        font-size: 1.8rem;
-    }
-}
 
 /* ===== Footer الجديد - تصميم صديقك ===== */
 .site-footer {
@@ -706,34 +608,6 @@ footer a:hover {
     margin: 0;
 }
 
-/* تجاوب Footer */
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 30px;
-    }
-    
-    .footer-about, .footer-links, .footer-contact {
-        max-width: 100%;
-        min-width: auto;
-    }
-    
-    .social-icons {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .site-footer {
-        padding: 30px 15px 10px;
-    }
-    
-    .footer-container {
-        gap: 25px;
-    }
-}
 
 /* ===== إصلاح مسافات السوشيال ميديا ===== */
 .social-links .btn {

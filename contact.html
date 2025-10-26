@@ -2,7 +2,6 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - City Events Directory</title>
     
     <!-- Bootstrap CSS -->
@@ -15,30 +14,17 @@
 <body>
     <!-- Header -->
     <header class="bg-primary text-white">
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <nav class="navbar navbar-dark">
             <div class="container">
                 <a class="navbar-brand fw-bold" href="index.html">
                     <i class="fas fa-calendar-alt me-2"></i>
                     City Events Directory
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="events.html">Events</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="contact.html">Contact</a>
-                        </li>
-                    </ul>
+                <div class="navbar-nav me-auto">
+                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="events.html">Events</a>
+                    <a class="nav-link" href="about.html">About</a>
+                    <a class="nav-link active" href="contact.html">Contact</a>
                 </div>
             </div>
         </nav>
@@ -69,23 +55,23 @@
                         <div class="card-body">
                             <form id="contactForm">
                                 <div class="row">
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-6 mb-3">
                                         <label for="contactName" class="form-label">Full Name *</label>
                                         <input type="text" class="form-control" id="contactName" required>
                                         <div class="invalid-feedback" id="nameError"></div>
                                     </div>
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-6 mb-3">
                                         <label for="contactEmail" class="form-label">Email Address *</label>
                                         <input type="email" class="form-control" id="contactEmail" required>
                                         <div class="invalid-feedback" id="emailError"></div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-6 mb-3">
                                         <label for="contactPhone" class="form-label">Phone Number</label>
                                         <input type="tel" class="form-control" id="contactPhone">
                                     </div>
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-6 mb-3">
                                         <label for="contactSubject" class="form-label">Subject *</label>
                                         <select class="form-select" id="contactSubject" required>
                                             <option value="">Choose Subject</option>
