@@ -449,6 +449,18 @@ footer a:hover {
     font-size: 2rem;
 }
 
+/* Emoji icons for categories */
+.category-btn i:before {
+    content: "🎵"; /* Default Music */
+}
+
+.category-btn:nth-child(1) i:before { content: "🎵"; } /* Music */
+.category-btn:nth-child(2) i:before { content: "🎨"; } /* Culture */
+.category-btn:nth-child(3) i:before { content: "⚽"; } /* Sports */
+.category-btn:nth-child(4) i:before { content: "👨‍👩‍👧‍👦"; } /* Family */
+.category-btn:nth-child(5) i:before { content: "🎓"; } /* Education */
+.category-btn:nth-child(6) i:before { content: "💻"; } /* Technology */
+
 /* ===== تصميم صديقك - Featured Events ===== */
 .featured-events {
     padding: 60px 30px;
